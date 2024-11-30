@@ -192,6 +192,33 @@ resource "aws_ec2_transit_gateway_route" "tgw_rt_route_us_east_1" {
   transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_ap_northeast_1.id
   transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.ap_northeast_1_to_us_east_1.id
 }
-
-
-
+resource "aws_ec2_transit_gateway_route" "tgw_rt_route_eu_west_2" {
+  provider                    = aws.ap-northeast-1
+  destination_cidr_block      = "10.232.0.0/16" # Adjust CIDR block as needed
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_ap_northeast_1.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.ap_northeast_1_to_eu_west_2.id
+}
+resource "aws_ec2_transit_gateway_route" "tgw_rt_route_sa_east_1" {
+  provider                    = aws.ap-northeast-1
+  destination_cidr_block      = "10.233.0.0/16" # Adjust CIDR block as needed
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_ap_northeast_1.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.ap_northeast_1_to_sa_east_1.id
+}
+resource "aws_ec2_transit_gateway_route" "tgw_rt_route_ap_southeast_2" {
+  provider                    = aws.ap-northeast-1
+  destination_cidr_block      = "10.234.0.0/16" # Adjust CIDR block as needed
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_ap_northeast_1.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.ap_northeast_1_to_ap_southeast_2.id
+}
+resource "aws_ec2_transit_gateway_route" "tgw_rt_route_ap_east_1" {
+  provider                    = aws.ap-northeast-1
+  destination_cidr_block      = "10.235.0.0/16" # Adjust CIDR block as needed
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_ap_northeast_1.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.ap_northeast_1_to_ap_east_1.id
+}
+resource "aws_ec2_transit_gateway_route" "tgw_rt_route_us_west_1" {
+  provider                    = aws.ap-northeast-1
+  destination_cidr_block      = "10.236.0.0/16" # Adjust CIDR block as needed
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_ap_northeast_1.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.ap_northeast_1_to_us_west_1.id
+}
