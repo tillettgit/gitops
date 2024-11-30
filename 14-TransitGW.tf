@@ -181,6 +181,36 @@ resource "aws_ec2_transit_gateway_route" "tgw_rt_route_ap_northeast_1" {
   transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_us_east_1.id
   transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.us_east_1_to_ap_northeast_1.id
 }
+resource "aws_ec2_transit_gateway_route" "tgw_rt_route_eu_west_2" {
+  provider                    = aws.us-east-1
+  destination_cidr_block      = "10.232.0.0/16" # Adjust CIDR block as needed
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_us_east_1.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.us_east_1_to_eu_west_2.id
+}
+resource "aws_ec2_transit_gateway_route" "tgw_rt_route_sa_east_1" {
+  provider                    = aws.us-east-1
+  destination_cidr_block      = "10.233.0.0/16" # Adjust CIDR block as needed
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_us_east_1.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.us_east_1_to_sa_east_1.id
+}
+resource "aws_ec2_transit_gateway_route" "tgw_rt_route_ap_southeast_2" {
+  provider                    = aws.us-east-1
+  destination_cidr_block      = "10.234.0.0/16" # Adjust CIDR block as needed
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_us_east_1.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.us_east_1_to_ap_southeast_2.id
+}
+resource "aws_ec2_transit_gateway_route" "tgw_rt_route_ap_east_1" {
+  provider                    = aws.us-east-1
+  destination_cidr_block      = "10.235.0.0/16" # Adjust CIDR block as needed
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_us_east_1.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.us_east_1_to_ap_east_1.id
+}
+resource "aws_ec2_transit_gateway_route" "tgw_rt_route_us_west_1" {
+  provider                    = aws.us-east-1
+  destination_cidr_block      = "10.236.0.0/16" # Adjust CIDR block as needed
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_us_east_1.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.us_east_1_to_us_west_1.id
+}
 resource "aws_ec2_transit_gateway_route_table" "tgw_rt_ap_northeast_1" {
   provider          = aws.ap-northeast-1
   transit_gateway_id = aws_ec2_transit_gateway.tgw_ap_northeast_1.id
@@ -221,4 +251,204 @@ resource "aws_ec2_transit_gateway_route" "tgw_rt_route_us_west_1" {
   destination_cidr_block      = "10.236.0.0/16" # Adjust CIDR block as needed
   transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_ap_northeast_1.id
   transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.ap_northeast_1_to_us_west_1.id
+}
+resource "aws_ec2_transit_gateway_route_table" "tgw_rt_eu_west_2" {
+  provider          = aws.eu-west-2
+  transit_gateway_id = aws_ec2_transit_gateway.tgw_eu_west_2.id
+}
+resource "aws_ec2_transit_gateway_route" "tgw_rt_route_ap_northeast_1" {
+  provider                    = aws.eu-west-2
+  destination_cidr_block      = "10.230.0.0/16" # Adjust CIDR block as needed
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_eu_west_2.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.eu_west_2_to_ap_northeast_1.id
+}
+resource "aws_ec2_transit_gateway_route" "tgw_rt_route_us_east_1" {
+  provider                    = aws.eu-west-2
+  destination_cidr_block      = "10.231.0.0/16" # Adjust CIDR block as needed
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_eu_west_2.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.eu_west_2_to_us_east_1.id
+}
+resource "aws_ec2_transit_gateway_route" "tgw_rt_route_sa_east_1" {
+  provider                    = aws.eu-west-2
+  destination_cidr_block      = "10.233.0.0/16" # Adjust CIDR block as needed
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_eu_west_2.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.eu_west_2_to_sa_east_1.id
+}
+resource "aws_ec2_transit_gateway_route" "tgw_rt_route_ap_southeast_2" {
+  provider                    = aws.eu-west-2
+  destination_cidr_block      = "10.234.0.0/16" # Adjust CIDR block as needed
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_eu_west_2.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.eu_west_2_to_ap_southeast_2.id
+}
+resource "aws_ec2_transit_gateway_route" "tgw_rt_route_ap_east_1" {
+  provider                    = aws.eu-west-2
+  destination_cidr_block      = "10.235.0.0/16" # Adjust CIDR block as needed
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_eu_west_2.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.eu_west_2_to_ap_east_1.id
+}
+resource "aws_ec2_transit_gateway_route" "tgw_rt_route_us_west_1" {
+  provider                    = aws.eu-west-2
+  destination_cidr_block      = "10.236.0.0/16" # Adjust CIDR block as needed
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_eu_west_2.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.eu_west_2_to_us_west_1.id
+}
+resource "aws_ec2_transit_gateway_route_table" "tgw_rt_sa_east_1" {
+  provider          = aws.sa-east-1
+  transit_gateway_id = aws_ec2_transit_gateway.tgw_sa_east_1.id
+}
+resource "aws_ec2_transit_gateway_route" "tgw_rt_route_ap_northeast_1" {
+  provider                    = aws.sa-east-1
+  destination_cidr_block      = "10.230.0.0/16" # Adjust CIDR block as needed
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_sa_east_1.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.sa_east_1_to_ap_northeast_1.id
+}
+resource "aws_ec2_transit_gateway_route" "tgw_rt_route_us_east_1" {
+  provider                    = aws.sa-east-1
+  destination_cidr_block      = "10.231.0.0/16" # Adjust CIDR block as needed
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_sa_east_1.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.sa_east_1_to_us_east_1.id
+}
+resource "aws_ec2_transit_gateway_route" "tgw_rt_route_eu_west_2" {
+  provider                    = aws.sa-east-1
+  destination_cidr_block      = "10.232.0.0/16" # Adjust CIDR block as needed
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_sa_east_1.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.sa_east_1_to_eu_west_2.id
+}
+resource "aws_ec2_transit_gateway_route" "tgw_rt_route_ap_southeast_2" {
+  provider                    = aws.sa-east-1
+  destination_cidr_block      = "10.234.0.0/16" # Adjust CIDR block as needed
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_sa_east_1.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.sa_east_1_to_ap_southeast_2.id
+}
+resource "aws_ec2_transit_gateway_route" "tgw_rt_route_ap_east_1" {
+  provider                    = aws.sa-east-1
+  destination_cidr_block      = "10.235.0.0/16" # Adjust CIDR block as needed
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_sa_east_1.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.sa_east_1_to_ap_east_1.id
+}
+resource "aws_ec2_transit_gateway_route" "tgw_rt_route_us_west_1" {
+  provider                    = aws.sa-east-1
+  destination_cidr_block      = "10.236.0.0/16" # Adjust CIDR block as needed
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_sa_east_1.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.sa_east_1_to_us_west_1.id
+}
+resource "aws_ec2_transit_gateway_route_table" "tgw_rt_ap_southeast_2" {
+  provider          = aws.ap-southeast-2
+  transit_gateway_id = aws_ec2_transit_gateway.tgw_ap_southeast_2.id
+}
+resource "aws_ec2_transit_gateway_route" "tgw_rt_route_ap_northeast_1" {
+  provider                    = aws.ap-southeast-2
+  destination_cidr_block      = "10.230.0.0/16" # Adjust CIDR block as needed
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_ap_southeast_2.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.ap_southeast_2_to_ap_northeast_1.id
+}
+resource "aws_ec2_transit_gateway_route" "tgw_rt_route_us_east_1" {
+  provider                    = aws.ap-southeast-2
+  destination_cidr_block      = "10.231.0.0/16" # Adjust CIDR block as needed
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_ap_southeast_2.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.ap_southeast_2_to_us_east_1.id
+}
+resource "aws_ec2_transit_gateway_route" "tgw_rt_route_eu_west_2" {
+  provider                    = aws.ap-southeast-2
+  destination_cidr_block      = "10.232.0.0/16" # Adjust CIDR block as needed
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_ap_southeast_2.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.ap_southeast_2_to_eu_west_2.id
+}
+resource "aws_ec2_transit_gateway_route" "tgw_rt_route_sa_east_1" {
+  provider                    = aws.ap-southeast-2
+  destination_cidr_block      = "10.233.0.0/16" # Adjust CIDR block as needed
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_ap_southeast_2.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.ap_southeast_2_to_sa_east_1.id
+}
+resource "aws_ec2_transit_gateway_route" "tgw_rt_route_ap_east_1" {
+  provider                    = aws.ap-southeast-2
+  destination_cidr_block      = "10.235.0.0/16" # Adjust CIDR block as needed
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_ap_southeast_2.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.ap_southeast_2_to_ap_east_1.id
+}
+resource "aws_ec2_transit_gateway_route" "tgw_rt_route_us_west_1" {
+  provider                    = aws.ap-southeast-2
+  destination_cidr_block      = "10.236.0.0/16" # Adjust CIDR block as needed
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_ap_southeast_2.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.ap_southeast_2_to_us_west_1.id
+}
+resource "aws_ec2_transit_gateway_route_table" "tgw_rt_ap_east_1" {
+  provider          = aws.ap-east-1
+  transit_gateway_id = aws_ec2_transit_gateway.tgw_ap_east_1.id
+}
+resource "aws_ec2_transit_gateway_route" "tgw_rt_route_ap_northeast_1" {
+  provider                    = aws.ap-east-1
+  destination_cidr_block      = "10.230.0.0/16" # Adjust CIDR block as needed
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_ap_east_1.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.ap_east_1_to_ap_northeast_1.id
+}
+resource "aws_ec2_transit_gateway_route" "tgw_rt_route_us_east_1" {
+  provider                    = aws.ap-east-1
+  destination_cidr_block      = "10.231.0.0/16" # Adjust CIDR block as needed
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_ap_east_1.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.ap_east_1_to_us_east_1.id
+}
+resource "aws_ec2_transit_gateway_route" "tgw_rt_route_eu_west_2" {
+  provider                    = aws.ap-east-1
+  destination_cidr_block      = "10.232.0.0/16" # Adjust CIDR block as needed
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_ap_east_1.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.ap_east_1_to_eu_west_2.id
+}
+resource "aws_ec2_transit_gateway_route" "tgw_rt_route_sa_east_1" {
+  provider                    = aws.ap-east-1
+  destination_cidr_block      = "10.233.0.0/16" # Adjust CIDR block as needed
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_ap_east_1.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.ap_east_1_to_sa_east_1.id
+}
+resource "aws_ec2_transit_gateway_route" "tgw_rt_route_ap_southeast_2" {
+  provider                    = aws.ap-east-1
+  destination_cidr_block      = "10.234.0.0/16" # Adjust CIDR block as needed
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_ap_east_1.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.ap_east_1_to_ap_southeast_2.id
+}
+resource "aws_ec2_transit_gateway_route" "tgw_rt_route_us_west_1" {
+  provider                    = aws.ap-east-1
+  destination_cidr_block      = "10.236.0.0/16" # Adjust CIDR block as needed
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_ap_east_1.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.ap_east_1_to_us_west_1.id
+}
+resource "aws_ec2_transit_gateway_route_table" "tgw_rt_us_west_1" {
+  provider          = aws.us-west-1
+  transit_gateway_id = aws_ec2_transit_gateway.tgw_us_west_1.id
+}
+resource "aws_ec2_transit_gateway_route" "tgw_rt_route_ap_northeast_1" {
+  provider                    = aws.us-west-1
+  destination_cidr_block      = "10.230.0.0/16" # Adjust CIDR block as needed
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_us_west_1.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.us_west_1_to_ap_northeast_1.id
+}
+resource "aws_ec2_transit_gateway_route" "tgw_rt_route_us_east_1" {
+  provider                    = aws.us-west-1
+  destination_cidr_block      = "10.231.0.0/16" # Adjust CIDR block as needed
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_us_west_1.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.us_west_1_to_us_east_1.id
+}
+resource "aws_ec2_transit_gateway_route" "tgw_rt_route_eu_west_2" {
+  provider                    = aws.us-west-1
+  destination_cidr_block      = "10.232.0.0/16" # Adjust CIDR block as needed
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_us_west_1.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.us_west_1_to_eu_west_2.id
+}
+resource "aws_ec2_transit_gateway_route" "tgw_rt_route_sa_east_1" {
+  provider                    = aws.us-west-1
+  destination_cidr_block      = "10.233.0.0/16" # Adjust CIDR block as needed
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_us_west_1.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.us_west_1_to_sa_east_1.id
+}
+resource "aws_ec2_transit_gateway_route" "tgw_rt_route_ap_southeast_2" {
+  provider                    = aws.us-west-1
+  destination_cidr_block      = "10.234.0.0/16" # Adjust CIDR block as needed
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_us_west_1.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.us_west_1_to_ap_southeast_2.id
+}
+resource "aws_ec2_transit_gateway_route" "tgw_rt_route_ap_east_1" {
+  provider                    = aws.us-west-1
+  destination_cidr_block      = "10.235.0.0/16" # Adjust CIDR block as needed
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.tgw_rt_us_west_1.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.us_west_1_to_ap_east_1.id
 }
