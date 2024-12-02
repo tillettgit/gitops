@@ -86,7 +86,7 @@ resource "aws_ec2_transit_gateway_peering_attachment" "ap-northeast-1_to_ap-sout
 }
 resource "aws_ec2_transit_gateway_peering_attachment" "ap-southeast-2_to_ap-northeast-1" {
   provider                = aws.ap-southeast-2
-  transit_gateway_id      = aws_ec2_transit_gateway.tgw_ap_southeast_1.id
+  transit_gateway_id      = aws_ec2_transit_gateway.tgw_ap_southeast_2.id
   peer_transit_gateway_id = aws_ec2_transit_gateway.tgw_ap_northeast_1.id
   #peer_account_id         = "<YOUR_AWS_ACCOUNT_ID>"
   peer_region             = "ap-northeast-1"
